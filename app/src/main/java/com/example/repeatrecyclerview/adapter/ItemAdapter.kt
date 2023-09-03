@@ -16,15 +16,15 @@ class ItemAdapter(private val context: Context, private val dataset: List<Messag
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val adaprterLayourt = LayoutInflater.from(parent.context)
+        val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
-        return ViewHolder(adaprterLayourt)
+        return ViewHolder(adapterLayout)
     }
 
     override fun getItemCount() = dataset.size // возрощаем размер нащего списка
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataset[position]
-        holder.binding.itemTitle.text = context.resources.getString(item.stringResources)
+        holder.binding.textView.text = context.resources.getString(item.stringResources)
     }
 }

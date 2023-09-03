@@ -1,5 +1,10 @@
 package com.example.repeatrecyclerview.model
 
-data class Messages(val stringResources: Int){
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+
+data class Messages(
+    @StringRes val stringResources: Int,
+    @DrawableRes val drawableRes: Int){
 
 }

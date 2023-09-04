@@ -25,6 +25,5 @@ class ItemAdapter(private val context: Context, private val dataset: List<Messag
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataset[position]
-        holder.binding.textView.text = context.resources.getString(item.stringResources)
+        }
     }
-}

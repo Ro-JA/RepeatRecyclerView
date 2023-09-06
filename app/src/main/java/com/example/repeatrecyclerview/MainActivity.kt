@@ -8,19 +8,20 @@ import com.example.repeatrecyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val adapter = ItemAdapter(this, Datasource().loadMessages())
     private var index = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      /*  val myDataSet = Datasource().loadMessages()
-        binding.recyclerView.adapter = ItemAdapter(this, myDataSet)
-        binding.recyclerView.setHasFixedSize(true)*/
+        /*  val myDataSet = Datasource().loadMessages()
+          binding.recyclerView.adapter = ItemAdapter(this, myDataSet)
+          binding.recyclerView.setHasFixedSize(true)*/
 
     }
 
-    private fun init(){
+    private fun init() {
         val myDatasource = Datasource().loadMessages()
         binding.apply {
             recyclerView.adapter = ItemAdapter(this@MainActivity, myDatasource)
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
             button.setOnClickListener {
                 if (index > 9) index = 0
                 val messages = myDatasource[index]
+                adapter.addMessage(messages)
+                index++
 
             }
         }

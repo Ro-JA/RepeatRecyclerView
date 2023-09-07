@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        init()
 
         /*  val myDataSet = Datasource().loadMessages()
           binding.recyclerView.adapter = ItemAdapter(this, myDataSet)
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             button.setOnClickListener {
                 if (index > 9) index = 0
                 val messages = myDatasource[index]
-                adapter.addMessage(messages)
                 index++
 
             }
